@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/clientes")
@@ -21,13 +22,18 @@ public class ClienteController {
         return ResponseEntity.ok(clienteService.guardarCliente(cliente));
     }
 
-    @GetMapping("/ordenados-nombre")
-    public ResponseEntity<List<Cliente>> listarClientesPorNombre() {
-        return ResponseEntity.ok(clienteService.listarClientesOrdenadosPorNombre());
+    @GetMapping("/clientespornombre")
+    public ResponseEntity<List<Cliente>> ClientesPorNombre() {
+        return ResponseEntity.ok(clienteService.clientesPorNombre());
     }
 
-    @GetMapping("/ordenados-edad")
-    public ResponseEntity<List<Cliente>> listarClientesPorEdad() {
-        return ResponseEntity.ok(clienteService.listarClientesOrdenadosPorEdad());
+    @GetMapping("/clientesporedad")
+    public ResponseEntity<List<Map<String, Object>>> ClientesPorEdad() {
+        return ResponseEntity.ok(clienteService.clientesPorEdad());
+    }
+
+    @GetMapping("/edadpromedio")
+    public ResponseEntity<Map<String, Object>> EdadPromedio() {
+        return ResponseEntity.ok(clienteService.promedioEdad());
     }
 }

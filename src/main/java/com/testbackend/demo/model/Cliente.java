@@ -12,7 +12,7 @@ public class Cliente {
     private String nombreCompleto;
 
     @Column(unique = true)
-    private int documentoIdentidad;
+    private String documentoIdentidad;
 
     private String correoElectronico;
 
@@ -35,11 +35,11 @@ public class Cliente {
         this.nombreCompleto = nombreCompleto;
     }
 
-    public Integer getDocumentoIdentidad() {
+    public String getDocumentoIdentidad() {
         return documentoIdentidad;
     }
 
-    public void setDocumentoIdentidad(Integer documentoIdentidad) {
+    public void setDocumentoIdentidad(String documentoIdentidad) {
         this.documentoIdentidad = documentoIdentidad;
     }
 
@@ -57,5 +57,16 @@ public class Cliente {
 
     public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public Cliente(Long id, String nombreCompleto, String documentoIdentidad, String correoElectronico, LocalDate fechaNacimiento) {
+        this.id = id;
+        this.nombreCompleto = nombreCompleto;
+        this.documentoIdentidad = documentoIdentidad;
+        this.correoElectronico = correoElectronico;
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public Cliente() {
     }
 }
